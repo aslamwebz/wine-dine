@@ -15,6 +15,12 @@ const Hero = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle modal open/close
+  const openReservationModal = () => setIsReservationModalOpen(true);
+  const openMenuModal = () => setIsMenuModalOpen(true);
+  const closeReservationModal = () => setIsReservationModalOpen(false);
+  const closeMenuModal = () => setIsMenuModalOpen(false);
+
   return (
     <section id="home" className="relative h-screen overflow-hidden">
       {/* Background Image with Parallax */}
@@ -57,7 +63,8 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-semibold px-8 py-3 text-lg transition-all duration-300 transform hover:scale-105"
-              onClick={() => setIsReservationModalOpen(true)}
+              onClick={openReservationModal}
+              type="button"
             >
               Reserve Your Table
             </Button>
@@ -65,7 +72,8 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal font-inter font-semibold px-8 py-3 text-lg transition-all duration-300 transform hover:scale-105"
-              onClick={() => setIsMenuModalOpen(true)}
+              onClick={openMenuModal}
+              type="button"
             >
               Explore Menu
             </Button>
@@ -82,12 +90,12 @@ const Hero = () => {
       
       <ReservationModal 
         isOpen={isReservationModalOpen} 
-        onClose={() => setIsReservationModalOpen(false)} 
+        onClose={closeReservationModal} 
       />
       
       <MenuModal 
         isOpen={isMenuModalOpen} 
-        onClose={() => setIsMenuModalOpen(false)}
+        onClose={closeMenuModal}
         initialTab="meal"
       />
     </section>
