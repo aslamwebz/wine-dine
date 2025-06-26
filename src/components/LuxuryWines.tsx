@@ -47,17 +47,17 @@ const LuxuryWines = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {luxuryWines.map((wine, index) => (
-            <Card key={index} className="bg-cream/95 backdrop-blur-sm border-gold/20 overflow-hidden group hover:scale-105 transition-transform duration-300">
-              <div className="relative h-[600px] overflow-hidden">
+            <Card key={index} className="bg-cream/95 border-none overflow-hidden group hover:scale-105 transition-transform duration-300">
+              <div className="relative h-[580px] overflow-hidden">
                 <img 
                   src={wine.image}
                   alt={wine.name}
-                  className="w-full  object-contain group-hover:scale-110 transition-transform duration-500"
+                  className="w-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-wine-primary/10" />
               </div>
               
-              <CardContent className="p-6 text-center">
+              <CardContent className="p-6 text-center ">
                 <h3 className="font-playfair text-2xl font-bold text-wine-primary mb-2">
                   {wine.name}
                 </h3>
