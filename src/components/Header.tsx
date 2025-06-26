@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
+import ReservationModal from './ReservationModal';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +50,10 @@ const Header = () => {
           </nav>
 
           <div className="hidden md:block">
-            <Button className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-medium px-6 py-2">
+            <Button 
+              className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-medium px-6 py-2"
+              onClick={() => setIsReservationModalOpen(true)}
+            >
               Reserve Table
             </Button>
           </div>
@@ -74,13 +79,24 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-medium mt-4">
+              <Button 
+                className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-medium mt-4"
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsReservationModalOpen(true);
+                }}
+              >
                 Reserve Table
               </Button>
             </nav>
           </div>
         )}
       </div>
+      
+      <ReservationModal 
+        isOpen={isReservationModalOpen} 
+        onClose={() => setIsReservationModalOpen(false)} 
+      />
     </header>
   );
 };

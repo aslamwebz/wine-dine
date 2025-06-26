@@ -1,9 +1,13 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
+import ReservationModal from './ReservationModal';
+import MenuModal from './MenuModal';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
+  const [isReservationModalOpen, setIsReservationModalOpen] = useState(false);
+  const [isMenuModalOpen, setIsMenuModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -53,6 +57,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               className="bg-wine-primary hover:bg-wine-light text-cream font-inter font-semibold px-8 py-3 text-lg transition-all duration-300 transform hover:scale-105"
+              onClick={() => setIsReservationModalOpen(true)}
             >
               Reserve Your Table
             </Button>
@@ -60,6 +65,7 @@ const Hero = () => {
               variant="outline" 
               size="lg"
               className="border-2 border-gold text-gold hover:bg-gold hover:text-charcoal font-inter font-semibold px-8 py-3 text-lg transition-all duration-300 transform hover:scale-105"
+              onClick={() => setIsMenuModalOpen(true)}
             >
               Explore Menu
             </Button>
@@ -73,6 +79,17 @@ const Hero = () => {
           <div className="w-1 h-3 bg-cream rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
+      
+      <ReservationModal 
+        isOpen={isReservationModalOpen} 
+        onClose={() => setIsReservationModalOpen(false)} 
+      />
+      
+      <MenuModal 
+        isOpen={isMenuModalOpen} 
+        onClose={() => setIsMenuModalOpen(false)}
+        initialTab="meal"
+      />
     </section>
   );
 };
