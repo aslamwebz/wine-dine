@@ -10,27 +10,34 @@ A modern, responsive website for a winery and restaurant, featuring wine collect
 
 - Node.js & npm - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-### Local Development
+## Getting Started
 
-To run this project locally, follow these steps:
+### Clone the project
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+```bash
+git clone https://github.com/aslamwebz/wine-dine.git
+```
 
-Follow these steps:
+### Go to the project directory
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone [<YOUR_GIT_URL>](https://github.com/aslamwebz/wine-dine)
+```bash
+cd wine-dine
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Install dependencies
 
-# Step 3: Install the necessary dependencies.
-npm i
+```bash
+npm install
+```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Start the server
+
+```bash
 npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
+
 
 ## Development Scripts
 
